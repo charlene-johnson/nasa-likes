@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import PicOfDay from "./Components/PictureOfDay";
+import Navigation from "./Components/Navigation";
+import {
+  Typography,
+} from "@mui/material";
+import {ThemeProvider} from '@mui/material/styles'
+import theme from "../src/ui/Theme";
+import {BrowserRouter as Router} from "react-router-dom";
+import AdapterMoment from "@mui/lab/AdapterMoment";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
 
-function App() {
+function App(props) {
+  const [date, setDate] = useState(new Date());
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+      <Router>
+        <Navigation date={date} setDate={setDate} />
+        <Typography
+          variant="h1"
+          style={{fontSize: "5rem", textAlign: "center", marginTop:"2rem"}}
+          >
+            Astronomy Picture of the Day
+        </Typography>  
+        {/* <PicOfDay date={date} /> */}
+      </Router>
+      </LocalizationProvider>
+    </ThemeProvider>
   );
 }
 

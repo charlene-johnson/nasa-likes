@@ -1,11 +1,11 @@
-import {createTheme} from "@material-ui/core/styles"
+import {createTheme} from "@mui/material/styles";
 
 const pink = "#FFC0CB";
 const lightblue = "#ADD8E6";
 const purple = "#800080";
 const black = "#000000";
 
-export default createTheme({
+const theme = createTheme({
     palette: {
         common: {
             pink: pink,
@@ -50,3 +50,5 @@ export default createTheme({
         },
     },
 });
+
+export default theme
