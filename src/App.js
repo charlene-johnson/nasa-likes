@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {StyledEngineProvider} from "@mui/material/styles"
 import PicOfDay from "./Components/PictureOfDay";
 import Navigation from "./Components/Navigation";
 import {
@@ -13,20 +14,22 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 function App() {
   const [date, setDate] = useState(new Date());
   return (
-    <ThemeProvider theme={theme}>
-      <LocalizationProvider dateAdapter={AdapterMoment}>
-      <Router>
-        <Navigation date={date} setDate={setDate} />
-        <Typography
-          variant="h1"
-          style={{fontSize: "5rem", textAlign: "center", marginTop:"2rem"}}
-          >
-            Astronomy Picture of the Day
-        </Typography>  
-        <PicOfDay date={date} />
-      </Router>
-      </LocalizationProvider>
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <LocalizationProvider dateAdapter={AdapterMoment}>
+        <Router>
+          <Navigation date={date} setDate={setDate} />
+          <Typography
+            variant="h1"
+            style={{fontSize: "3rem", textAlign: "center", marginTop:"2rem"}}
+            >
+              Astronomy Picture of the Day
+          </Typography>  
+          <PicOfDay date={date} />
+        </Router>
+        </LocalizationProvider>
+      </ThemeProvider>
+   </StyledEngineProvider>
   );
 }
 

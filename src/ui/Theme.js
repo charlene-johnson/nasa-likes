@@ -31,18 +31,18 @@ const theme = createTheme({
         },
         h1: {
             fontFamily: "Orbitron",
-            fontSize: "2.5em"
+            fontSize: "1.7em"
         },
         h2: {
             fontFamily: "Orbitron",
-            fontSize: "2.5em"
+            fontSize: "1.5em"
         },
         subtitle1: {
             fontFamily: "Orbitron"
         },
         subtitle2: {
             fontFamily: "Orbitron",
-            fontSize: "1.5rem"
+            fontSize: "1.7rem"
         },
         buttons: {
             fontFamily: "Orbitron",

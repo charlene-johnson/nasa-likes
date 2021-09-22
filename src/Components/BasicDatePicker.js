@@ -5,12 +5,12 @@ import TextField from "@mui/material/TextField";
 export default function BasicDatePicker(props) {
   const {date, setDate} = props;
 
-  return(
+  return (
     <DatePicker
-        label="Select a Date"
-        value={date}
-        onChange={(date) => setDate(date)}
-        renderInput={(params) => <TextField {...params} />}
-        />
+      label="Choose a Date"
+      value={date}
+      onChange={(date) => setDate(date)}
+      renderInput={(params) => <TextField style={{margin:16}} {...params} />}
+    />
   );
 }

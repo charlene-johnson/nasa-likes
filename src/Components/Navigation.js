@@ -6,6 +6,7 @@ import {
   Tabs,
   Tab,
   Typography,
+  Button
 } from "@mui/material";
 import {makeStyles} from "@mui/styles";
 import {Link} from "react-router-dom";
@@ -26,7 +27,7 @@ function ElevationScroll(props) {
 
 const useStyles = makeStyles((theme) => ({
     logo: {
-        height: "8em",
+        height: "6em",
         marginLeft: "0.2em",
     },
     tabContainer: {
@@ -71,31 +72,34 @@ export default function Navigation(props) {
       <React.Fragment>
         <ElevationScroll>
           <AppBar
-            position="relative"
+            position="sticky"
             style={{
               borderBottom: "2px solid black",
             }}
           >
             <Toolbar disableGutters>
-                <img src={logo} alt="nasa logo" className={classes.logo}/>
-                <Typography variant="h1" style={{ textAlign: "center" }}>
-                  Nasa<br></br>Photos
-                </Typography>
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  indicatorColor="primary"
-                  className={classes.tabContainer}
-                >
-                  <Tab
-                    className={classes.tab}
-                    component={Link}
-                    onClick={refreshPage}
-                    to="/"
-                    label="Home"
-                  />
-                  <BasicDatePicker date={props.date} setDate={props.setDate}/>
-                </Tabs>
+              <Button
+                component={Link}
+                to="/"
+                disableRipple
+                onClick={refreshPage}
+              >
+                <img src={logo} alt="nasa logo" className={classes.logo} />
+              </Button>
+              <Typography variant="h1" style={{ textAlign: "center" }}>
+                Nasa<br></br>Photos
+              </Typography>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                className={classes.tabContainer}
+              >
+                <BasicDatePicker
+                  date={props.date}
+                  setDate={props.setDate}
+                />
+              </Tabs>
             </Toolbar>
           </AppBar>
         </ElevationScroll>
