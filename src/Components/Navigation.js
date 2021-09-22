@@ -13,15 +13,12 @@ import logo from "../images/nasa-logo.png";
 import BasicDatePicker from "./BasicDatePicker";
 
 
-
 function ElevationScroll(props) {
     const {children} = props;
-
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 0,
     });
-    
     return React.cloneElement(children, {
         elevation: trigger ? 4: 0,
     });
@@ -50,9 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navigation(props) {
     const classes = useStyles();
-
     const [value, setValue] = useState(0);
-
     const handleChange = (e, value) => {
         setValue(value);
     };
@@ -71,7 +66,6 @@ export default function Navigation(props) {
                 break;
         }
     }, [value]);
-
 
     return (
       <React.Fragment>
@@ -100,7 +94,7 @@ export default function Navigation(props) {
                     to="/"
                     label="Home"
                   />
-                  <BasicDatePicker/>
+                  <BasicDatePicker date={props.date} setDate={props.setDate}/>
                 </Tabs>
             </Toolbar>
           </AppBar>

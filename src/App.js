@@ -10,7 +10,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import AdapterMoment from "@mui/lab/AdapterMoment";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 
-function App(props) {
+function App() {
   const [date, setDate] = useState(new Date());
   return (
     <ThemeProvider theme={theme}>
@@ -23,7 +23,7 @@ function App(props) {
           >
             Astronomy Picture of the Day
         </Typography>  
-        {/* <PicOfDay date={date} /> */}
+        <PicOfDay date={date} />
       </Router>
       </LocalizationProvider>
     </ThemeProvider>
