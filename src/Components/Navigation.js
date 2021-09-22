@@ -4,7 +4,6 @@ import {
   Toolbar,
   useScrollTrigger,
   Tabs,
-  Tab,
   Typography,
   Button
 } from "@mui/material";
