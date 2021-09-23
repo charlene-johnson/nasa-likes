@@ -67,8 +67,13 @@ export default function PictureInfo(props) {
     const newDate = moment(props.date).format("dddd, MMMM, Do YYYY");
   
     return (
-      <>
-        <Grid container direction="row" justifyContent="center" alignItems="center">
+      <React.Fragment>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
           <Grid item className={classes.formGridItem}>
             <Typography variant="h2">Date: {newDate}</Typography>
           </Grid>
@@ -76,7 +81,12 @@ export default function PictureInfo(props) {
             <Typography variant="h2">Title of Photo: {props.title}</Typography>
           </Grid>
         </Grid>
-        <Grid container direction="column" justifyContent="center" alignItems="center">
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+        >
           <Grid item className={classes.formGridItem}>
             {props.media === "video" ? (
               <iframe
@@ -85,13 +95,12 @@ export default function PictureInfo(props) {
                 src={props.image}
                 width="800px"
                 height="600px"
-              >
-              </iframe>
+              ></iframe>
             ) : (
               <img className={classes.image} alt="nasa" src={props.image} />
             )}
           </Grid>
-          <Likes/>
+          <Likes />
           <Grid item className={classes.formGridItem} align="center">
             <Button
               className={classes.button}
@@ -114,7 +123,7 @@ export default function PictureInfo(props) {
                   borderBottom: "1px solid pink",
                   fontFamily: "'Orbitron', sans-serif",
                   marginBottom: "1em",
-                  fontSize:"1.4em"
+                  fontSize: "1.4em",
                 }}
               >
                 Explanation of: {props.title}
@@ -126,7 +135,11 @@ export default function PictureInfo(props) {
                   padding: "2em",
                 }}
               >
-                <Typography id="modal-modal-description" variant="subtitle2" style={{fontSize:"1.2em"}}>
+                <Typography
+                  id="modal-modal-description"
+                  variant="subtitle2"
+                  style={{ fontSize: "1.2em" }}
+                >
                   {props.explanation}
                 </Typography>
               </Box>
@@ -135,12 +148,12 @@ export default function PictureInfo(props) {
           <footer>
             <Typography
               variant="subtitle2"
-              style={{ fontSize: "1rem", color: "black"}}
+              style={{ fontSize: "1rem", color: "black" }}
             >
               &copy;2021 Charlene Johnson
             </Typography>
           </footer>
         </Grid>
-      </>
+      </React.Fragment>
     );
 }

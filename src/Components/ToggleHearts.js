@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 function ToggleHearts({liked}) {
     const classes = useStyles()
     return (
-      <>
+      <React.Fragment>
         {liked ? (
           <div>
             <img
@@ -33,7 +33,7 @@ function ToggleHearts({liked}) {
             <Typography style={{ fontFamily: "Orbitron" }}>Liked</Typography>
           </div>
         )}
-      </>
+      </React.Fragment>
     );
 }
 
