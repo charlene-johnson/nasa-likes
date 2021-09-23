@@ -78,9 +78,13 @@ export default function Navigation(props) {
             }}
           >
             <Toolbar disableGutters>
-              <Button 
-                component={Link} to="https://www.nasa.gov/" 
-                disableRipple>
+              <Button
+                component={"a"}
+                href="https://www.nasa.gov/"
+                disableRipple
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <img src={logo} alt="nasa logo" className={classes.logo} />
               </Button>
               <Typography variant="h1" style={{ textAlign: "center" }}>
