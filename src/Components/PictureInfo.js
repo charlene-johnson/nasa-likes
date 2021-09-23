@@ -8,7 +8,7 @@ import {
     Button,
     Grid,
 } from "@mui/material";
-import Likes from "./Likes"
+import Likes from "./Likes";
 
 
 const style = {
@@ -34,15 +34,12 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "transparent",
     },
   },
-  subtitle: {
-    color: theme.palette.common.black,
-  },
   button: {
     ...theme.typography.buttons,
     fontFamily: "Orbitron",
-    padding: "1.5em",
-    fontSize: "1.5em",
-    backgrond: theme.palette.primary.mainGradient,
+    padding: "1.1em",
+    fontSize: "1.1em",
+    background: theme.palette.primary.mainGradient,
     border: "2px solid pink",
     "&:hover": {
       background: theme.palette.secondary.mainGradient,
@@ -73,10 +70,10 @@ export default function PictureInfo(props) {
       <>
         <Grid container direction="row" justifyContent="center" alignItems="center">
           <Grid item className={classes.formGridItem}>
-            <Typography variant="h1">Date: {newDate}</Typography>
+            <Typography variant="h2">Date: {newDate}</Typography>
           </Grid>
           <Grid item className={classes.formGridItem}>
-            <Typography variant="h1">Title of Photo: {props.title}</Typography>
+            <Typography variant="h2">Title of Photo: {props.title}</Typography>
           </Grid>
         </Grid>
         <Grid container direction="column" justifyContent="center" alignItems="center">
@@ -93,7 +90,7 @@ export default function PictureInfo(props) {
               <img className={classes.image} alt="nasa" src={props.image} />
             )}
           </Grid>
-          <Likes />
+          <Likes/>
           <Grid item className={classes.formGridItem} align="center">
             <Button
               className={classes.button}
@@ -137,7 +134,7 @@ export default function PictureInfo(props) {
           <footer>
           <Typography
             variant="subtitle2"
-            style={{ fontSize: "1.3rem", color: "black"}}
+            style={{ fontSize: "1rem", color: "black"}}
           >
             &copy;2021 Charlene Johnson
           </Typography>

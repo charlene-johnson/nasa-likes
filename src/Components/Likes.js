@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import like from "../images/heart.svg";
+import React, {useState, useEffect} from "react";
+import ToggleHearts from "./ToggleHearts"
 import {
     Button,
     Typography,
@@ -12,9 +12,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Orbitron",
     padding: "0.7em",
     fontSize: "1.5em",
-    width:"3.2em",
-    height:"3.2em",
-    backgrond: theme.palette.primary.mainGradient,
+    width: "3.2em",
+    height: "3.2em",
+    background: theme.palette.primary.mainGradient,
     border: "2px solid pink",
     "&:hover": {
       background: theme.palette.secondary.mainGradient,
@@ -22,26 +22,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Likes = props => {
+
+const Likes = () => {
     const classes = useStyles();
-    const [liked, setLiked] = useState(false);
-    const toggledLiked = () => {
-        setLiked(!liked);
-        if (!liked) {
-            props.setLikes(props.likes +1)
-        } else {
-            props.setLikes(props.likes -1)
-        }
-    }
+    const [liked, setLiked] = useState(false)
+    const handleChangeHeart = () => {
+        setLiked((previousHeart) => {
+            return !previousHeart;
+        });
+    };
+   
+    useEffect(() => {
+        setLiked(JSON.parse(window.localStorage.getItem("liked")));
+    }, [])
+
+    useEffect(() => {
+        window.localStorage.setItem('liked', liked);
+    }, [liked])
 
     return (
       <Button
         className={classes.button}
         variant="contained"
-        onclick={toggledLiked}
+        onClick={handleChangeHeart}
       >
-        <Typography style={{fontFamily:"Orbitron"}}>
-          <img src={like} alt="heart" /> Like!
+        <Typography style={{ fontFamily: "Orbitron" }}>
+          <ToggleHearts liked={liked}/>
         </Typography>
       </Button>
     );

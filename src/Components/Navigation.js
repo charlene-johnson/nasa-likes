@@ -4,6 +4,7 @@ import {
   Toolbar,
   useScrollTrigger,
   Tabs,
+  Tab,
   Typography,
   Button
 } from "@mui/material";
@@ -25,23 +26,23 @@ function ElevationScroll(props) {
 }
 
 const useStyles = makeStyles((theme) => ({
-    logo: {
-        height: "6em",
-        marginLeft: "0.2em",
+  logo: {
+    height: "5.5em",
+    marginLeft: "0.2em",
+  },
+  tabContainer: {
+    marginLeft: "auto",
+  },
+  tab:{
+    ...theme.typography.tab,
+    minWidth: 10,
+    marginRight: "50px",
+    opacity: 1,
+    "&:hover": {
+      color: theme.palette.common.purple,
+      textDecoration: "none",
     },
-    tabContainer: {
-        marginLeft: "auto",
-    },
-    tab: {
-       ...theme.typography.tab,
-        minWidth: 10,
-        marginRight: "50px",
-        opacity: 1,
-        "&hover": {
-            color: theme.palette.common.purple,
-            textDecoration:"none",
-        },
-    },
+  },
 }));
 
 
@@ -94,10 +95,15 @@ export default function Navigation(props) {
                 indicatorColor="primary"
                 className={classes.tabContainer}
               >
-                <BasicDatePicker
-                  date={props.date}
-                  setDate={props.setDate}
+                <Tab
+                  className={classes.tab}
+                  value="Today's Picture"
+                  label="Today's Picture"
+                  component={Link}
+                  onClick={refreshPage}
+                  to="/"
                 />
+                <BasicDatePicker date={props.date} setDate={props.setDate} />
               </Tabs>
             </Toolbar>
           </AppBar>

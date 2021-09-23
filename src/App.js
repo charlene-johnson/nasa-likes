@@ -21,7 +21,7 @@ function App() {
           <Navigation date={date} setDate={setDate} />
           <Typography
             variant="h1"
-            style={{fontSize: "3rem", textAlign: "center", marginTop:"2rem"}}
+            style={{fontSize: "3rem", textAlign: "center", marginTop:"1rem"}}
             >
               Astronomy Picture of the Day
           </Typography>  
