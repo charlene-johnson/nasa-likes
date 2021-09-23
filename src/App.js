@@ -2,9 +2,7 @@ import React,{useState} from "react";
 import {StyledEngineProvider} from "@mui/material/styles"
 import PicOfDay from "./Components/PictureOfDay";
 import Navigation from "./Components/Navigation";
-import {
-  Typography,
-} from "@mui/material";
+import {Typography} from "@mui/material";
 import {ThemeProvider} from '@mui/material/styles'
 import theme from "../src/ui/Theme";
 import {BrowserRouter as Router} from "react-router-dom";

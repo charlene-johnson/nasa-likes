@@ -85,7 +85,8 @@ export default function PictureInfo(props) {
                 src={props.image}
                 width="800px"
                 height="600px"
-              ></iframe>
+              >
+              </iframe>
             ) : (
               <img className={classes.image} alt="nasa" src={props.image} />
             )}
@@ -132,12 +133,12 @@ export default function PictureInfo(props) {
             </Box>
           </Modal>
           <footer>
-          <Typography
-            variant="subtitle2"
-            style={{ fontSize: "1rem", color: "black"}}
-          >
-            &copy;2021 Charlene Johnson
-          </Typography>
+            <Typography
+              variant="subtitle2"
+              style={{ fontSize: "1rem", color: "black"}}
+            >
+              &copy;2021 Charlene Johnson
+            </Typography>
           </footer>
         </Grid>
       </>

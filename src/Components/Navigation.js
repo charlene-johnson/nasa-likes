@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Navigation(props) {
     const classes = useStyles();
     const [value, setValue] = useState(0);
-    const handleChange = (e, value) => {
+    const handleChange = (value) => {
         setValue(value);
     };
     const refreshPage = () => {

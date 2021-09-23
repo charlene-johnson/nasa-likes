@@ -7,7 +7,6 @@ import {Typography} from "@mui/material";
 const useStyles = makeStyles((theme) => ({
   hearts: {
    height: "45px",
-   
   },
 }));
 
