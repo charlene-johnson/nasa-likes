@@ -30,7 +30,7 @@ function ToggleHearts({liked}) {
               src={solidlike}
               alt="outlineheart"
             />
-            <Typography style={{ fontFamily: "Orbitron" }}>Liked</Typography>
+            <Typography style={{ fontFamily: "Orbitron" }}>Liked!</Typography>
           </div>
         )}
       </React.Fragment>
