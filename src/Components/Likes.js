@@ -31,7 +31,6 @@ const Likes = () => {
             return !previousHeart;
         });
     };
-   
     useEffect(() => {
         setLiked(JSON.parse(window.localStorage.getItem("liked")));
     }, [])

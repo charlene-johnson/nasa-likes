@@ -4,7 +4,7 @@ import outlinelike from "../images/heart.svg";
 import { makeStyles } from "@mui/styles";
 import {Typography} from "@mui/material";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   hearts: {
    height: "45px",
   },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {makeStyles} from "@mui/styles";
 import moment from "moment";
 import {
@@ -65,6 +65,7 @@ export default function PictureInfo(props) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const newDate = moment(props.date).format("dddd, MMMM, Do YYYY");
+    
   
     return (
       <React.Fragment>
