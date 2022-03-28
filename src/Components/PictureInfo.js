@@ -14,10 +14,10 @@ import Likes from "./Likes";
 // modal styling
 const style = {
     position: "absolute",
-    top: "50",
+    top: "50%",
     left: "50%",
-    transform: "translate(-50%, 30%)",
-    width: "30%",
+    transform: "translate(-50%, -50%)",
+    width: 600,
     background: "linear-gradient(to right, lightblue, pink)",
     border: "1px solid purple",
     boxShadow: 24,
@@ -79,7 +79,7 @@ export default function PictureInfo(props) {
       <React.Fragment>
         <Grid
           container
-          direction={matchesSM ? "column": "row"}
+          direction={matchesSM ? "column" : "row"}
           justifyContent="center"
           alignItems="center"
         >
@@ -119,41 +119,7 @@ export default function PictureInfo(props) {
               Click here for an explanation!
             </Button>
           </Grid>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <Typography
-                id="modal-modal-title"
-                style={{
-                  borderBottom: "1px solid pink",
-                  fontFamily: "'Orbitron', sans-serif",
-                  marginBottom: "1em",
-                  fontSize: "1.4em",
-                }}
-              >
-                Explanation of: {props.title}
-              </Typography>
-              <Box
-                style={{
-                  background: "white",
-                  border: "1px solid purple",
-                  padding: "2em",
-                }}
-              >
-                <Typography
-                  id="modal-modal-description"
-                  variant="subtitle2"
-                  style={{ fontSize: "1.2em" }}
-                >
-                  {props.explanation}
-                </Typography>
-              </Box>
-            </Box>
-          </Modal>
+
           <footer>
             <Typography
               variant="subtitle2"
@@ -163,6 +129,41 @@ export default function PictureInfo(props) {
             </Typography>
           </footer>
         </Grid>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography
+              id="modal-modal-title"
+              style={{
+                borderBottom: "1px solid pink",
+                fontFamily: "'Orbitron', sans-serif",
+                marginBottom: "1em",
+                fontSize: "1.4em",
+              }}
+            >
+              Explanation of: {props.title}
+            </Typography>
+            <Box
+              style={{
+                background: "white",
+                border: "1px solid purple",
+                padding: "2em",
+              }}
+            >
+              <Typography
+                id="modal-modal-description"
+                variant="subtitle2"
+                style={{ fontSize: "1.2em" }}
+              >
+                {props.explanation}
+              </Typography>
+            </Box>
+          </Box>
+        </Modal>
       </React.Fragment>
     );
 }
