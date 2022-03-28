@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {makeStyles} from "@mui/styles";
+import {makeStyles, useTheme} from "@mui/styles";
 import moment from "moment";
 import {
     Typography,
@@ -7,10 +7,11 @@ import {
     Modal,
     Button,
     Grid,
+    useMediaQuery
 } from "@mui/material";
 import Likes from "./Likes";
 
-
+// modal styling
 const style = {
     position: "absolute",
     top: "50",
@@ -56,11 +57,18 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.secondary.mainGradient,
     maxWidth: "1000px",
     maxHeight: "700px",
+    [theme.breakpoints.down("sm")] : {
+      maxWidth: "700px",
+      maxHeight: "300px",
+      padding: "13px",
+    }
   },
 }));
 
 export default function PictureInfo(props) {
     const classes = useStyles();
+    const theme = useTheme();
+    const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -71,7 +79,7 @@ export default function PictureInfo(props) {
       <React.Fragment>
         <Grid
           container
-          direction="row"
+          direction={matchesSM ? "column": "row"}
           justifyContent="center"
           alignItems="center"
         >
@@ -108,7 +116,7 @@ export default function PictureInfo(props) {
               variant="contained"
               onClick={handleOpen}
             >
-              Click here for more information!
+              Click here for an explanation!
             </Button>
           </Grid>
           <Modal
@@ -151,7 +159,7 @@ export default function PictureInfo(props) {
               variant="subtitle2"
               style={{ fontSize: "1rem", color: "black" }}
             >
-              &copy;2021 Charlene Johnson
+              &copy;2022 Charlene Johnson
             </Typography>
           </footer>
         </Grid>
