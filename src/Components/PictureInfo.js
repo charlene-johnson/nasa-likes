@@ -18,11 +18,15 @@ const style  = {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 600,
-    background: "linear-gradient(to right, lightblue, pink)",
-    border: "1px solid purple",
+    bgcolor: "background.paper",
+    borderWidth: "20px",
+    borderStyle: "solid",
+    borderImage:"linear-gradient(to right, lightblue, pink)",
+    borderImageSlice:"20%",
     boxShadow: 24,
     p: 4,
 };
+
 
 const useStyles = makeStyles((theme) => ({
   formGridItem: {
@@ -96,9 +100,15 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Orbitron', sans-serif",
     marginBottom: "1em",
     fontSize: "1.4em",
+    background:"linear-gradient(to right, lightblue, pink)",
     [theme.breakpoints.down("sm")]: {
       fontSize: "0.9em",
     },
+  },
+  explanationBox: {
+    background: "white",
+    border: "1px solid purple",
+    padding: "2em",
   },
   explanation: {
     fontSize: "1.2em",
@@ -160,18 +170,8 @@ export default function PictureInfo(props) {
             >
               Click here for an explanation!
             </Button>
-          </Grid>
-
-          <footer>
-            <Typography
-              variant="subtitle2"
-              className={classes.copyright}
-            >
-              &copy;2022 Charlene Johnson
-            </Typography>
-          </footer>
-        </Grid>
-        <Modal
+          </Grid>       
+          <Modal
           open={open}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
@@ -182,25 +182,32 @@ export default function PictureInfo(props) {
               className={classes.explanationTitle}
               id="modal-modal-title"
             >
-              Explanation of: {props.title}
+              Information about: {props.title}
             </Typography>
-            <Box
-              style={{
-                background: "white",
-                border: "1px solid purple",
-                padding: "2em",
-              }}
-            >
+            {/* <Box
+             className={classes.explanationBox}> */}
               <Typography
                 className={classes.explanation}
                 id="modal-modal-description"
                 variant="subtitle2"
+                style={{textAlign:"left"}}
               >
                 {props.explanation}
               </Typography>
-            </Box>
+            {/* </Box> */}
           </Box>
         </Modal>
+
+          <footer>
+            <Typography
+              variant="subtitle2"
+              className={classes.copyright}
+            >
+              &copy;2022 Charlene Johnson
+            </Typography>
+          </footer>
+        </Grid>
+ 
       </React.Fragment>
     );
 }
