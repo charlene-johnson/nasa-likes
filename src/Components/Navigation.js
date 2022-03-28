@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import {makeStyles, useTheme} from "@mui/styles";
 import {Link} from "react-router-dom";
-import logo from "../images/new-nasa-logo.png";
+import logo from "../images/newest-nasa-logo.png";
 import BasicDatePicker from "./BasicDatePicker";
 import PhoneDatePicker from "./MobileDatePicker";
 
