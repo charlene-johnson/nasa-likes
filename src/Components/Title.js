@@ -1,7 +1,6 @@
 import React from "react";
 import {Typography} from "@mui/material"
 import {makeStyles} from "@mui/styles";
-import { normalizeUnits } from "moment";
 
 const useStyles = makeStyles((theme) => ({
     title: {
