@@ -12,7 +12,7 @@ import {
 import Likes from "./Likes";
 
 // modal styling
-const style = {
+const style  = {
     position: "absolute",
     top: "50%",
     left: "50%",
@@ -27,6 +27,10 @@ const style = {
 const useStyles = makeStyles((theme) => ({
   formGridItem: {
     margin: "2.5em",
+    [theme.breakpoints.down("sm")]: {
+      margin: "1em",
+      fontSize: "0.7em",
+    },
   },
   logoContainer: {
     padding: 0,
@@ -57,12 +61,39 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.secondary.mainGradient,
     maxWidth: "1000px",
     maxHeight: "700px",
-    [theme.breakpoints.down("sm")] : {
+    [theme.breakpoints.down("sm")]: {
       maxWidth: "700px",
       maxHeight: "300px",
       padding: "13px",
+    },
+  },
+  copyright: {
+    fontSize: "1rem",
+    color: "black",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.6rem",
+    },
+  },
+  modal: {
+    [theme.breakpoints.down("sm")]: {
+      width: 295,
+    },
+  },
+  explanationTitle: {
+    borderBottom: "1px solid pink",
+    fontFamily: "'Orbitron', sans-serif",
+    marginBottom: "1em",
+    fontSize: "1.4em",
+    [theme.breakpoints.down("sm")] : {
+      fontSize: "0.9em"
     }
   },
+  explanation: {
+    fontSize: "1.2em",
+    [theme.breakpoints.down("sm")] : {
+      fontSize: "0.8em"
+    }
+  }
 }));
 
 export default function PictureInfo(props) {
@@ -123,7 +154,7 @@ export default function PictureInfo(props) {
           <footer>
             <Typography
               variant="subtitle2"
-              style={{ fontSize: "1rem", color: "black" }}
+              className={classes.copyright}
             >
               &copy;2022 Charlene Johnson
             </Typography>
@@ -135,15 +166,10 @@ export default function PictureInfo(props) {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
+          <Box className={classes.modal} sx={style}>
             <Typography
+              className={classes.explanationTitle}
               id="modal-modal-title"
-              style={{
-                borderBottom: "1px solid pink",
-                fontFamily: "'Orbitron', sans-serif",
-                marginBottom: "1em",
-                fontSize: "1.4em",
-              }}
             >
               Explanation of: {props.title}
             </Typography>
@@ -155,9 +181,9 @@ export default function PictureInfo(props) {
               }}
             >
               <Typography
+                className={classes.explanation}
                 id="modal-modal-description"
                 variant="subtitle2"
-                style={{ fontSize: "1.2em" }}
               >
                 {props.explanation}
               </Typography>

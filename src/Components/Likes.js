@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       background: theme.palette.secondary.mainGradient,
     },
+    [theme.breakpoints.down("sm")] :{
+      width: "2.3em",
+      height: "2.3em"
+    }
   },
 }));
 

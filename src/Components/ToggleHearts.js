@@ -4,10 +4,20 @@ import outlinelike from "../images/heart.svg";
 import { makeStyles } from "@mui/styles";
 import {Typography} from "@mui/material";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   hearts: {
    height: "45px",
+   [theme.breakpoints.down("sm")] : {
+    height: "27px"
+    }
   },
+  liked: {
+    fontFamily: "Orbitron",
+    [theme.breakpoints.down("sm")] : {
+      fontSize: "0.7em"
+    }
+  },
+  
 }));
 
 function ToggleHearts({liked}) {
@@ -21,7 +31,7 @@ function ToggleHearts({liked}) {
               src={outlinelike}
               alt="solidheart"
             />
-            <Typography style={{ fontFamily: "Orbitron" }}>Like</Typography>
+            <Typography className={classes.liked}>Like</Typography>
           </div>
         ) : (
           <div>
@@ -30,7 +40,7 @@ function ToggleHearts({liked}) {
               src={solidlike}
               alt="outlineheart"
             />
-            <Typography style={{ fontFamily: "Orbitron" }}>Liked!</Typography>
+            <Typography className={classes.liked}>Liked!</Typography>
           </div>
         )}
       </React.Fragment>
