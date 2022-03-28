@@ -62,7 +62,19 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "1000px",
     maxHeight: "700px",
     [theme.breakpoints.down("sm")]: {
-      maxWidth: "700px",
+      maxWidth: "350px",
+      maxHeight: "300px",
+      padding: "13px",
+    },
+  },
+  video: {
+    padding: "20px",
+    border: "1px solid pink",
+    background: theme.palette.secondary.mainGradient,
+    width: 800,
+    height: 600,
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "350px",
       maxHeight: "300px",
       padding: "13px",
     },
@@ -84,16 +96,16 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Orbitron', sans-serif",
     marginBottom: "1em",
     fontSize: "1.4em",
-    [theme.breakpoints.down("sm")] : {
-      fontSize: "0.9em"
-    }
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.9em",
+    },
   },
   explanation: {
     fontSize: "1.2em",
-    [theme.breakpoints.down("sm")] : {
-      fontSize: "0.8em"
-    }
-  }
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.8em",
+    },
+  },
 }));
 
 export default function PictureInfo(props) {
@@ -105,7 +117,6 @@ export default function PictureInfo(props) {
     const handleClose = () => setOpen(false);
     const newDate = moment(props.date).format("dddd, MMMM, Do YYYY");
     
-  
     return (
       <React.Fragment>
         <Grid
@@ -130,7 +141,7 @@ export default function PictureInfo(props) {
           <Grid item className={classes.formGridItem}>
             {props.media === "video" ? (
               <iframe
-                className={classes.image}
+                className={classes.video}
                 title="video"
                 src={props.image}
                 width="800px"
