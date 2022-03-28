@@ -1,8 +1,8 @@
 import React,{useState} from "react";
 import {StyledEngineProvider} from "@mui/material/styles"
+import Title from "./Components/Title"
 import PicOfDay from "./Components/PictureOfDay";
 import Navigation from "./Components/Navigation";
-import {Typography} from "@mui/material";
 import {ThemeProvider} from '@mui/material/styles'
 import theme from "../src/ui/Theme";
 import {BrowserRouter as Router} from "react-router-dom";
@@ -17,12 +17,7 @@ function App() {
         <LocalizationProvider dateAdapter={AdapterMoment}>
         <Router>
           <Navigation date={date} setDate={setDate} />
-          <Typography
-            variant="h1"
-            style={{fontSize: "3rem", textAlign: "center", marginTop:"1rem"}}
-            >
-              Astronomy Picture of the Day
-          </Typography>  
+          <Title/>
           <PicOfDay date={date} />
         </Router>
         </LocalizationProvider>

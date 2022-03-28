@@ -6,12 +6,14 @@ import {
   Tabs,
   Tab,
   Typography,
-  Button
+  Button,
+  useMediaQuery
 } from "@mui/material";
-import {makeStyles} from "@mui/styles";
+import {makeStyles, useTheme} from "@mui/styles";
 import {Link} from "react-router-dom";
-import logo from "../images/nasa-logo.png";
+import logo from "../images/new-nasa-logo.png";
 import BasicDatePicker from "./BasicDatePicker";
+import PhoneDatePicker from "./MobileDatePicker";
 
 
 function ElevationScroll(props) {
@@ -29,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     height: "5.5em",
     marginLeft: "0.2em",
+    [theme.breakpoints.down("sm")] : {
+      height: "4.5em",
+    }
   },
   tabContainer: {
     marginLeft: "auto",
@@ -43,12 +48,23 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: "none",
     },
   },
+  navTitle:{
+    textAlign: "center",
+    [theme.breakpoints.down("sm")] : {
+      fontSize:"1.3em"
+    }
+  },
 }));
 
 
 export default function Navigation(props) {
     const classes = useStyles();
+    const theme = useTheme();
+    const hidden = useMediaQuery(theme.breakpoints.down("sm"));
     const [value, setValue] = useState(0);
+     const matchesSM = useMediaQuery(theme.breakpoints.down("sm"))
+    const [mobile, setMobile] = useState(matchesSM)
+   
     const handleChange = (value) => {
         setValue(value);
     };
@@ -87,8 +103,8 @@ export default function Navigation(props) {
               >
                 <img src={logo} alt="nasa logo" className={classes.logo} />
               </Button>
-              <Typography variant="h1" style={{ textAlign: "center" }}>
-                Nasa<br></br>Photos
+              <Typography variant="h1" className={classes.navTitle}>
+                Nasa<br></br> Photos
               </Typography>
               <Tabs
                 value={value}
@@ -97,6 +113,7 @@ export default function Navigation(props) {
                 className={classes.tabContainer}
               >
                 <Tab
+                  sx = {{display: {xs: "none", sm:"none", md:"undefined"}}}
                   className={classes.tab}
                   value="Today's Picture"
                   label="Today's Picture"
@@ -104,7 +121,11 @@ export default function Navigation(props) {
                   onClick={refreshPage}
                   to="/"
                 />
-                <BasicDatePicker date={props.date} setDate={props.setDate} />
+                {mobile ? (
+                  <PhoneDatePicker date={props.date} setDate={props.setDate} />
+                ) : (
+                  <BasicDatePicker date={props.date} setDate={props.setDate} />
+                )}
               </Tabs>
             </Toolbar>
           </AppBar>
