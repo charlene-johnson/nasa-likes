@@ -28,11 +28,12 @@ const style = {
 };
 
 const useStyles = makeStyles((theme) => ({
-  formGridItem: {
+  titleGridItem: {
     margin: "2.5em",
     [theme.breakpoints.down("sm")]: {
       margin: "1em",
       fontSize: "0.7em",
+      textAlign:"center"
     },
   },
   logoContainer: {
@@ -124,10 +125,10 @@ export default function PictureInfo(props) {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item className={classes.formGridItem}>
+        <Grid item className={classes.titleGridItem}>
           <Typography variant="h2">Date: {newDate}</Typography>
         </Grid>
-        <Grid item className={classes.formGridItem}>
+        <Grid item className={classes.titleGridItem}>
           <Typography variant="h2">Title of Photo: {props.title}</Typography>
         </Grid>
       </Grid>
@@ -137,7 +138,7 @@ export default function PictureInfo(props) {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item className={classes.formGridItem}>
+        <Grid item className={classes.titleGridItem}>
           {props.media === "video" ? (
             <iframe
               className={classes.video}
@@ -150,8 +151,8 @@ export default function PictureInfo(props) {
             <img className={classes.image} alt="nasa" src={props.image} />
           )}
         </Grid>
-        <Likes />
-        <Grid item className={classes.formGridItem} align="center">
+        <Likes/>
+        <Grid item className={classes.titleGridItem} align="center">
           <Button
             className={classes.button}
             variant="contained"
