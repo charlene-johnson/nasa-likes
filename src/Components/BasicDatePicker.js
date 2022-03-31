@@ -7,12 +7,11 @@ const useStyles = makeStyles((theme) => ({
   datePicker: {
     width: "75%",
     margin: 16,
-    [theme.breakpoints.down("sm")] : {
-      marginLeft: 40
-    }
-  }
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 40,
+    },
+  },
 }));
-
 
 export default function BasicDatePicker(props) {
   const { date, setDate } = props;

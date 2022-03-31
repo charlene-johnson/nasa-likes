@@ -1,39 +1,39 @@
-import React, {useState} from "react";
-import {makeStyles, useTheme} from "@mui/styles";
+import React from "react";
+import { makeStyles, useTheme } from "@mui/styles";
 import moment from "moment";
 import {
-    Typography,
-    Box,
-    Modal,
-    Button,
-    Grid,
-    useMediaQuery
+  Typography,
+  Box,
+  Modal,
+  Button,
+  Grid,
+  useMediaQuery,
 } from "@mui/material";
 import Likes from "./Likes";
 
 // modal styling
-const style  = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 600,
-    bgcolor: "background.paper",
-    borderWidth: "20px",
-    borderStyle: "solid",
-    borderImage:"linear-gradient(to right, lightblue, pink)",
-    borderImageSlice:"20%",
-    boxShadow: 24,
-    p: 4,
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 600,
+  bgcolor: "background.paper",
+  borderWidth: "20px",
+  borderStyle: "solid",
+  borderImage: "linear-gradient(to right, lightblue, pink)",
+  borderImageSlice: "20%",
+  boxShadow: 24,
+  p: 4,
 };
 
-
 const useStyles = makeStyles((theme) => ({
-  formGridItem: {
+  titleGridItem: {
     margin: "2.5em",
     [theme.breakpoints.down("sm")]: {
       margin: "1em",
       fontSize: "0.7em",
+      textAlign:"center"
     },
   },
   logoContainer: {
@@ -53,11 +53,6 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       background: theme.palette.secondary.mainGradient,
     },
-  },
-  explanation: {
-    background: "white",
-    border: "1px solid purple",
-    padding: "1em",
   },
   image: {
     padding: "20px",
@@ -100,15 +95,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Orbitron', sans-serif",
     marginBottom: "1em",
     fontSize: "1.4em",
-    background:"linear-gradient(to right, lightblue, pink)",
+    background: "linear-gradient(to right, lightblue, pink)",
     [theme.breakpoints.down("sm")]: {
       fontSize: "0.9em",
     },
-  },
-  explanationBox: {
-    background: "white",
-    border: "1px solid purple",
-    padding: "2em",
   },
   explanation: {
     fontSize: "1.2em",
@@ -119,59 +109,59 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PictureInfo(props) {
-    const classes = useStyles();
-    const theme = useTheme();
-    const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    const newDate = moment(props.date).format("dddd, MMMM, Do YYYY");
-    
-    return (
-      <React.Fragment>
-        <Grid
-          container
-          direction={matchesSM ? "column" : "row"}
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Grid item className={classes.formGridItem}>
-            <Typography variant="h2">Date: {newDate}</Typography>
-          </Grid>
-          <Grid item className={classes.formGridItem}>
-            <Typography variant="h2">Title of Photo: {props.title}</Typography>
-          </Grid>
+  const classes = useStyles();
+  const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const newDate = moment(props.date).format("dddd, MMMM, Do YYYY");
+
+  return (
+    <React.Fragment>
+      <Grid
+        container
+        direction={matchesSM ? "column" : "row"}
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Grid item className={classes.titleGridItem}>
+          <Typography variant="h2">Date: {newDate}</Typography>
         </Grid>
-        <Grid
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Grid item className={classes.formGridItem}>
-            {props.media === "video" ? (
-              <iframe
-                className={classes.video}
-                title="video"
-                src={props.image}
-                width="800px"
-                height="600px"
-              ></iframe>
-            ) : (
-              <img className={classes.image} alt="nasa" src={props.image} />
-            )}
-          </Grid>
-          <Likes />
-          <Grid item className={classes.formGridItem} align="center">
-            <Button
-              className={classes.button}
-              variant="contained"
-              onClick={handleOpen}
-            >
-              Click here for an explanation!
-            </Button>
-          </Grid>       
-          <Modal
+        <Grid item className={classes.titleGridItem}>
+          <Typography variant="h2">Title of Photo: {props.title}</Typography>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Grid item className={classes.titleGridItem}>
+          {props.media === "video" ? (
+            <iframe
+              className={classes.video}
+              title="video"
+              src={props.image}
+              width="800px"
+              height="600px"
+            ></iframe>
+          ) : (
+            <img className={classes.image} alt="nasa" src={props.image} />
+          )}
+        </Grid>
+        <Likes/>
+        <Grid item className={classes.titleGridItem} align="center">
+          <Button
+            className={classes.button}
+            variant="contained"
+            onClick={handleOpen}
+          >
+            Click here for an explanation!
+          </Button>
+        </Grid>
+        <Modal
           open={open}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
@@ -184,30 +174,22 @@ export default function PictureInfo(props) {
             >
               Information about: {props.title}
             </Typography>
-            {/* <Box
-             className={classes.explanationBox}> */}
-              <Typography
-                className={classes.explanation}
-                id="modal-modal-description"
-                variant="subtitle2"
-                style={{textAlign:"left"}}
-              >
-                {props.explanation}
-              </Typography>
-            {/* </Box> */}
+            <Typography
+              className={classes.explanation}
+              id="modal-modal-description"
+              variant="subtitle2"
+              style={{ textAlign: "left" }}
+            >
+              {props.explanation}
+            </Typography>
           </Box>
         </Modal>
-
-          <footer>
-            <Typography
-              variant="subtitle2"
-              className={classes.copyright}
-            >
-              &copy;2022 Charlene Johnson
-            </Typography>
-          </footer>
-        </Grid>
- 
-      </React.Fragment>
-    );
+        <footer>
+          <Typography variant="subtitle2" className={classes.copyright}>
+            &copy;2022 Charlene Johnson
+          </Typography>
+        </footer>
+      </Grid>
+    </React.Fragment>
+  );
 }

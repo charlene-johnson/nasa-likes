@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import {makeStyles, useTheme} from "@mui/styles";
 import {Link} from "react-router-dom";
-import logo from "../images/newest-nasa-logo.png";
+import logo from "../images/nasa-logo.png";
 import BasicDatePicker from "./BasicDatePicker";
 import PhoneDatePicker from "./MobileDatePicker";
 
@@ -60,10 +60,9 @@ const useStyles = makeStyles((theme) => ({
 export default function Navigation(props) {
     const classes = useStyles();
     const theme = useTheme();
-    const hidden = useMediaQuery(theme.breakpoints.down("sm"));
     const [value, setValue] = useState(0);
-     const matchesSM = useMediaQuery(theme.breakpoints.down("sm"))
-    const [mobile, setMobile] = useState(matchesSM)
+    const matchesSM = useMediaQuery(theme.breakpoints.down("sm"))
+    const [mobile] = useState(matchesSM)
    
     const handleChange = (value) => {
         setValue(value);
@@ -107,7 +106,7 @@ export default function Navigation(props) {
                 Nasa<br></br> Photos
               </Typography>
               <Tabs
-                value={value}
+                value={1}
                 onChange={handleChange}
                 indicatorColor="primary"
                 className={classes.tabContainer}

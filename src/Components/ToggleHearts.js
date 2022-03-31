@@ -7,14 +7,15 @@ import {Typography} from "@mui/material";
 const useStyles = makeStyles((theme) => ({
   hearts: {
    height: "45px",
+   marginTop:"3px",
    [theme.breakpoints.down("sm")] : {
-    height: "27px"
+    height: "32px"
     }
   },
   liked: {
     fontFamily: "Orbitron",
     [theme.breakpoints.down("sm")] : {
-      fontSize: "0.7em"
+      fontSize: "0.7em",
     }
   },
   
@@ -22,26 +23,31 @@ const useStyles = makeStyles((theme) => ({
 
 function ToggleHearts({liked}) {
     const classes = useStyles()
+
     return (
       <React.Fragment>
         {liked ? (
-          <div>
-            <img
-              className={classes.hearts}
-              src={outlinelike}
-              alt="solidheart"
-            />
-            <Typography className={classes.liked}>Like</Typography>
-          </div>
-        ) : (
-          <div>
+          <span>
             <img
               className={classes.hearts}
               src={solidlike}
+              alt="solidheart"
+            />
+            <Typography component={"span"} className={classes.liked}>
+              Liked!
+            </Typography>
+          </span>
+        ) : (
+          <span>
+            <img
+              className={classes.hearts}
+              src={outlinelike}
               alt="outlineheart"
             />
-            <Typography className={classes.liked}>Liked!</Typography>
-          </div>
+            <Typography component={"span"} className={classes.liked}>
+              Like
+            </Typography>
+          </span>
         )}
       </React.Fragment>
     );

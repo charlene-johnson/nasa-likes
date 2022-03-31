@@ -1,10 +1,7 @@
-import React, {useState, useEffect} from "react";
-import ToggleHearts from "./ToggleHearts"
-import {
-    Button,
-    Typography,
-} from "@mui/material";
-import {makeStyles} from "@mui/styles";
+import React, { useState, useEffect } from "react";
+import ToggleHearts from "./ToggleHearts";
+import { Button, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -19,41 +16,41 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       background: theme.palette.secondary.mainGradient,
     },
-    [theme.breakpoints.down("sm")] :{
-      width: "2.3em",
-      height: "2.3em"
-    }
+    [theme.breakpoints.down("sm")]: {
+      width: "2.5em",
+      height: "2.5em",
+      padding:"33px"
+    },
   },
 }));
 
-
 const Likes = () => {
-    const classes = useStyles();
-    const [liked, setLiked] = useState(false)
-    const handleChangeHeart = () => {
-        setLiked((previousHeart) => {
-            return !previousHeart;
-        });
-    };
-    useEffect(() => {
-        setLiked(JSON.parse(window.localStorage.getItem("liked")));
-    }, [])
+  const classes = useStyles();
+  const [liked, setLiked] = useState(false);
+  const handleChangeHeart = () => {
+    setLiked((previousHeart) => {
+      return !previousHeart;
+    });
+  };
+  useEffect(() => {
+    setLiked(JSON.parse(window.localStorage.getItem("liked")));
+  }, []);
 
-    useEffect(() => {
-        window.localStorage.setItem('liked', liked);
-    }, [liked])
+  useEffect(() => {
+    window.localStorage.setItem("liked", liked,);
+  }, [liked]);
 
-    return (
-      <Button
-        className={classes.button}
-        variant="contained"
-        onClick={handleChangeHeart}
-      >
-        <Typography style={{ fontFamily: "Orbitron" }}>
-          <ToggleHearts liked={liked}/>
-        </Typography>
-      </Button>
-    );
-}
+  return (
+    <Button
+      className={classes.button}
+      variant="contained"
+      onClick={handleChangeHeart}
+    >
+      <Typography style={{ fontFamily: "Orbitron" }}>
+        <ToggleHearts liked={liked}/>
+      </Typography>
+    </Button>
+  );
+};
 
-export default Likes
+export default Likes;
