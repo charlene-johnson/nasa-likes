@@ -9,14 +9,13 @@ const useStyles = makeStyles((theme) => ({
    height: "45px",
    marginTop:"3px",
    [theme.breakpoints.down("sm")] : {
-    height: "27px"
+    height: "32px"
     }
   },
   liked: {
     fontFamily: "Orbitron",
     [theme.breakpoints.down("sm")] : {
-      fontSize: "0.7em"
-
+      fontSize: "0.7em",
     }
   },
   
@@ -24,28 +23,29 @@ const useStyles = makeStyles((theme) => ({
 
 function ToggleHearts({liked}) {
     const classes = useStyles()
+
     return (
       <React.Fragment>
         {liked ? (
           <span>
             <img
               className={classes.hearts}
-              src={outlinelike}
+              src={solidlike}
               alt="solidheart"
             />
             <Typography component={"span"} className={classes.liked}>
-              Like
+              Liked!
             </Typography>
           </span>
         ) : (
           <span>
             <img
               className={classes.hearts}
-              src={solidlike}
+              src={outlinelike}
               alt="outlineheart"
             />
             <Typography component={"span"} className={classes.liked}>
-              Liked!
+              Like
             </Typography>
           </span>
         )}

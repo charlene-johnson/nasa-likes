@@ -17,8 +17,9 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.mainGradient,
     },
     [theme.breakpoints.down("sm")]: {
-      width: "2.3em",
-      height: "2.3em",
+      width: "2.5em",
+      height: "2.5em",
+      padding:"33px"
     },
   },
 }));
@@ -36,7 +37,7 @@ const Likes = () => {
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem("liked", liked);
+    window.localStorage.setItem("liked", liked,);
   }, [liked]);
 
   return (
@@ -46,7 +47,7 @@ const Likes = () => {
       onClick={handleChangeHeart}
     >
       <Typography style={{ fontFamily: "Orbitron" }}>
-        <ToggleHearts liked={liked} />
+        <ToggleHearts liked={liked}/>
       </Typography>
     </Button>
   );

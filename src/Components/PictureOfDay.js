@@ -44,7 +44,7 @@ export default function PictureOfDay(props) {
 
   return (
     <div>
-      {!isLoading && Object.entries(picture) ? (
+      {!isLoading && picture ? (
         <PictureInfo
           date={picture.date}
           title={picture.title}
