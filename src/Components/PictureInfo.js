@@ -116,6 +116,7 @@ export default function PictureInfo(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const newDate = moment(props.date).format("dddd, MMMM, Do YYYY");
+  console.log(props.title)
 
   return (
     <React.Fragment>
