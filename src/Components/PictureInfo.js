@@ -187,7 +187,7 @@ export default function PictureInfo(props) {
         </Modal>
         <footer>
           <Typography variant="subtitle2" className={classes.copyright}>
-            &copy;2022 Charlene Johnson
+            &copy;2023 Charlene Johnson
           </Typography>
         </footer>
       </Grid>
