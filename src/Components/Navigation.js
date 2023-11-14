@@ -13,8 +13,6 @@ import {makeStyles, useTheme} from "@mui/styles";
 import {Link} from "react-router-dom";
 import logo from "../images/nasa-logo.png";
 import BasicDatePicker from "./BasicDatePicker";
-import PhoneDatePicker from "./MobileDatePicker";
-
 
 function ElevationScroll(props) {
     const {children} = props;
@@ -33,7 +31,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "0.2em",
     [theme.breakpoints.down("sm")] : {
       height: "4.5em",
-    }
+    },
+    [theme.breakpoints.down("xs")] : {
+      height: "2.5em"
+    },
   },
   tabContainer: {
     marginLeft: "auto",
@@ -43,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 10,
     marginRight: "50px",
     opacity: 1,
+    [theme.breakpoints.down("xs")] : {
+      display: "none"
+    },
     "&:hover": {
       color: theme.palette.common.purple,
       textDecoration: "none",
@@ -52,18 +56,18 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     [theme.breakpoints.down("sm")] : {
       fontSize:"1.3em"
-    }
+    },
+    [theme.breakpoints.down("xs")] : {
+      fontSize:"1em",
+      marginRight:"1em",
+    },
   },
 }));
 
 
 export default function Navigation(props) {
     const classes = useStyles();
-    const theme = useTheme();
     const [value, setValue] = useState(0);
-    const matchesSM = useMediaQuery(theme.breakpoints.down("sm"))
-    const [mobile] = useState(matchesSM)
-   
     const handleChange = (value) => {
         setValue(value);
     };
@@ -112,7 +116,7 @@ export default function Navigation(props) {
                 className={classes.tabContainer}
               >
                 <Tab
-                  sx={{ display: { xs: 'none', sm: 'none', md: 'undefined' } }}
+                  sx={{ display: { xs: 'none', md: 'undefined' } }}
                   className={classes.tab}
                   value="Today's Picture"
                   label="Today's Picture"
@@ -121,11 +125,7 @@ export default function Navigation(props) {
                   to='/'
                 />
               </Tabs>
-              {mobile ? (
-                <PhoneDatePicker date={props.date} setDate={props.setDate} />
-              ) : (
-                <BasicDatePicker date={props.date} setDate={props.setDate} />
-              )}
+              <BasicDatePicker date={props.date} setDate={props.setDate} />
             </Toolbar>
           </AppBar>
         </ElevationScroll>

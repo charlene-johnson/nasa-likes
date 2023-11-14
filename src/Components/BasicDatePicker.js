@@ -11,6 +11,7 @@ export default function BasicDatePicker(props) {
       value={dayjs(date)}
       onChange={(date) => setDate(date)}
       disableFuture
+      sx={{marginRight:1.5}}
     />
   );
 }

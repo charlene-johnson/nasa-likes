@@ -65,6 +65,11 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: "300px",
       padding: "13px",
     },
+    [theme.breakpoints.down("xs")] : {
+      maxWidth: "300px",
+      maxHeight:"300px",
+      padding: "12px",
+    }
   },
   video: {
     padding: "20px",
@@ -77,6 +82,11 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: "300px",
       padding: "13px",
     },
+    [theme.breakpoints.down("xs")] : {
+      maxWidth: "300px",
+      maxHeight: "300px",
+      padding: "12px",
+    }
   },
   copyright: {
     fontSize: "1rem",
