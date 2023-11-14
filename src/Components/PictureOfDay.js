@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PictureInfo from "./PictureInfo";
-import moment from "moment";
 import Loader from "react-loader-spinner";
 import { makeStyles } from "@mui/styles";
+import dayjs from 'dayjs';
+
 
 const useStyles = makeStyles(() => ({
   keySpinner: {
@@ -22,7 +23,7 @@ export default function PictureOfDay(props) {
   const [picture, setPicture] = useState([]);
   const { date } = props;
   const [isLoading, setIsLoading] = useState(false);
-  let selectDate = moment(date, "ddd MMM DD YYYY HH:mm:ss Z-HHmm");
+  let selectDate = dayjs(date, "ddd MMM DD YYYY HH:mm:ss Z-HHmm");
   let formatDate = selectDate.format("YYYY-MM-DD");
 
   useEffect(() => {

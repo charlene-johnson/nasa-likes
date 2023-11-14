@@ -1,30 +1,17 @@
 import React from "react";
-import DatePicker from "@mui/lab/DatePicker";
-import TextField from "@mui/material/TextField";
-import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles((theme) => ({
-  datePicker: {
-    width: "75%",
-    margin: 16,
-    [theme.breakpoints.down("sm")]: {
-      marginLeft: 40,
-    },
-  },
-}));
+import {DatePicker} from "@mui/x-date-pickers/DatePicker";
+import dayjs from "dayjs";
 
 export default function BasicDatePicker(props) {
-  const { date, setDate } = props;
-  const classes = useStyles();
+  const {date, setDate} = props;
 
   return (
     <DatePicker
-      label="Choose a Date"
-      value={date}
+      label='Choose a Date'
+      value={dayjs(date)}
       onChange={(date) => setDate(date)}
-      renderInput={(params) => (
-        <TextField className={classes.datePicker} {...params} />
-      )}
+      disableFuture
+      sx={{marginRight:1.5}}
     />
   );
 }
