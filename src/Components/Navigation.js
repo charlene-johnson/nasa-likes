@@ -7,9 +7,8 @@ import {
   Tab,
   Typography,
   Button,
-  useMediaQuery
 } from "@mui/material";
-import {makeStyles, useTheme} from "@mui/styles";
+import {makeStyles} from "@mui/styles";
 import {Link} from "react-router-dom";
 import logo from "../images/nasa-logo.png";
 import BasicDatePicker from "./BasicDatePicker";
