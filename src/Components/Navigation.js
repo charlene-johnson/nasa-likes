@@ -87,45 +87,45 @@ export default function Navigation(props) {
       <React.Fragment>
         <ElevationScroll>
           <AppBar
-            position="sticky"
+            position='sticky'
             style={{
-              borderBottom: "2px solid black",
+              borderBottom: '2px solid black',
             }}
           >
             <Toolbar disableGutters>
               <Button
-                component={"a"}
-                href="https://www.nasa.gov/"
+                component={'a'}
+                href='https://www.nasa.gov/'
                 disableRipple
-                rel="noopener noreferrer"
-                target="_blank"
+                rel='noopener noreferrer'
+                target='_blank'
               >
-                <img src={logo} alt="nasa logo" className={classes.logo} />
+                <img src={logo} alt='nasa logo' className={classes.logo} />
               </Button>
-              <Typography variant="h1" className={classes.navTitle}>
+              <Typography variant='h1' className={classes.navTitle}>
                 Nasa<br></br> Photos
               </Typography>
               <Tabs
                 value={1}
                 onChange={handleChange}
-                indicatorColor="primary"
+                indicatorColor='primary'
                 className={classes.tabContainer}
               >
                 <Tab
-                  sx = {{display: {xs: "none", sm:"none", md:"undefined"}}}
+                  sx={{ display: { xs: 'none', sm: 'none', md: 'undefined' } }}
                   className={classes.tab}
                   value="Today's Picture"
                   label="Today's Picture"
                   component={Link}
                   onClick={refreshPage}
-                  to="/"
+                  to='/'
                 />
-                {mobile ? (
-                  <PhoneDatePicker date={props.date} setDate={props.setDate} />
-                ) : (
-                  <BasicDatePicker date={props.date} setDate={props.setDate} />
-                )}
               </Tabs>
+              {mobile ? (
+                <PhoneDatePicker date={props.date} setDate={props.setDate} />
+              ) : (
+                <BasicDatePicker date={props.date} setDate={props.setDate} />
+              )}
             </Toolbar>
           </AppBar>
         </ElevationScroll>
